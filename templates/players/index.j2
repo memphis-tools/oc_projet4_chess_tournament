@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="projet4 openclassroom parcours developpeur python">
+    <meta name="keywords" content="html5 css js python">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>PLAYERS_REPORT</title>
+  </head>
+  <body>
+    <div class="body_container">
+      <header>
+        <p class="report_name">{{ report_name }}</p>
+      </header>
+      <main>
+        <section>
+          <div class="section_container">
+            <article>
+                <p class="sub_report_name">nombre de joueurs (actifs, inactifs, archivés): {{ players_list|length }}</p>
+                {% for player in players_list %}
+                <ol>
+                {% for key,value in player.get_content().items() %}
+                  <li><p class="item_name">{{ key }}:</p><p class="item_value">{{ value }}</p></li>
+                {%- endfor %}
+                </ol>
+                <hr>
+                {%- endfor %}
+            </article>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="footer_container">
+          <p id="footer_date"></p>
+          <div class="social_media_container">
+            <img class="social_media" src="../static/img/chess_club.png" alt="social media icon">
+          </div>
+        </div>
+      </footer>
+      <script>
+      var footer_date = new Date();
+      document.getElementById("footer_date").innerHTML = "OpenClassRoom Projet4 ChessGame &copy" + footer_date.getFullYear();
+      </script>
+    </div>
+  </body>
+</html>

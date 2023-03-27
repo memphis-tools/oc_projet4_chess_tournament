@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="projet4 openclassroom parcours developpeur python">
+    <meta name="keywords" content="html5 css js python">
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <title>TOURNAMENTS_REPORT</title>
+  </head>
+  <body>
+    <div class="body_container">
+      <header>
+        <p class="report_name">{{ report_name }}</p>
+      </header>
+      <main>
+        <section>
+          <div class="section_container">
+            <article>
+              <p class="sub_report_name">nombre de {{ element_to_list }}:
+                {% if 'rounds' in element_to_list %}
+                  {% set nb_rounds = namespace(value=0) %}
+                  {% for tournament in tournaments_list %}
+                  {% for round in tournament['rounds_list'] %}
+                  {% set nb_rounds.value = nb_rounds.value + 1 %}
+                  {% endfor %}
+                  {% endfor %}
+                  {{ nb_rounds.value }}
+                {% else %}
+                  {{ tournaments_list|length }}</p>
+                {% endif %}
+              {% for tournament in tournaments_list %}
+              <div class="tournament">
+              <ol>
+                {% for key,value in tournament.items() %}
+                {% if "rounds_list" not in key %}
+                {% if ("current_round_id" not in key) and ("status" not in key) %}
+                <li><p class="item_name">{{ key }}</p>: <p class="item_value">{{ value }}</p></li>
+                {% endif %}
+                {% else %}
+                {% for rounds in tournament[key] %}
+                <p class="item_name">{{ rounds["name"] }}</p>
+                {% for match in rounds["matches_list"] %}
+                <li class="item_value">
+                  {{ match[0][0]["ine"] }} {{ match[0][0]["fullname"] }}
+                  vs
+                  {{ match[1][0]["ine"] }} {{ match[1][0]["fullname"] }} - gagnant:
+                  {% if match[0][1] == 1 %}
+                  {{ match[0][0]["ine"] }}
+                  {% else %}
+                  {{ match[1][0]["ine"] }}
+                  {% endif %}
+                </li>
+                {% endfor %}
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
+              </ol>
+              </div>
+              <hr>
+              {% endfor %}
+            </article>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <div class="footer_container">
+          <p id="footer_date"></p>
+          <div class="social_media_container">
+            <img class="social_media" src="../static/img/chess_club.png" alt="social media icon">
+          </div>
+        </div>
+      </footer>
+      <script>
+      var footer_date = new Date();
+      document.getElementById("footer_date").innerHTML = "OpenClassRoom Projet4 ChessGame &copy" + footer_date.getFullYear();
+      </script>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+{% for player in players_list %}
+{% for key,value in player.get_content().items() %}
+{{ key }}: {{ value }}
+{%- endfor %}
+{%- endfor %}

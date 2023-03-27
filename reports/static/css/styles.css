@@ -1,0 +1,174 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'adventpro';
+  src: url("../fonts/adventpro/adventpro-regular-webfont.woff");
+  src: url("../fonts/adventpro/adventpro-regular-webfont.woff") format("woff"),
+  url("../fonts/adventpro/adventpro-regular-webfont.ttf") format("truetype");
+}
+
+body {
+  font-family: "adventpro", "arial", sans-serif;
+  font-weight: 300;
+  text-rendering: optimizeLegibility;
+  color: #FCFFE7;
+  background-color: #FFFFFF;
+}
+
+header {
+  width: 100%;
+  padding-bottom: 10px;
+}
+
+.report_name {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  background-color: #2B3467;
+  z-index: 1;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  padding: 2px 0 2px 0;
+}
+
+.sub_report_name {
+  text-transform: uppercase;
+}
+
+section {
+  color: #2B3467;
+  width: 100%;
+}
+
+ol {
+  width: 100%;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
+.tournament {
+  width: 100%;
+  padding-bottom: 15px;
+}
+
+li {
+  text-decoration: none;
+  list-style: none;
+  text-transform: capitalize;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+hr {
+  border: 2px dashed #EB455F;
+  width: 100%;
+}
+
+.section_container {
+  background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../img/chess_club.png");
+  background-size: auto;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.section_container article {
+  font-size: 1.1em;
+  min-height: 550px;
+  width: 100%;
+  padding: 5% 15% 5% 15%;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: baseline;
+}
+
+.item_name {
+  text-decoration: underline;
+  font-weight: bold;
+}
+
+.item_value {
+  color: #FFF;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+footer {
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+.footer_container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+  text-align: center;
+  background-color: #EB455F;
+  width: 100%;
+}
+
+.social_media_container img{
+  width: 10%;
+}
+
+@media only screen and (max-width: 750px) {
+  .report_name {
+    text-transform: uppercase;
+    font-size: 1em;
+    background-color: #2B3467;
+    z-index: 1;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    padding: 2px 0 2px 0;
+  }
+
+  .section_container article {
+    font-size: 1.0em;
+    min-height: 550px;
+    width: 100%;
+    padding: 5% 5% 10% 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+
+}
+
+@media only screen and (max-width: 450px) {
+  .report_name {
+    text-transform: uppercase;
+    font-size: 0.9em;
+    background-color: #2B3467;
+    z-index: 1;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    padding: 2px 0 2px 0;
+  }
+
+  .section_container article {
+    font-size: 1.0em;
+    min-height: 550px;
+    width: 100%;
+    padding: 5% 5% 10% 5%;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: baseline;
+  }
+
+}

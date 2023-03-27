@@ -1,0 +1,14 @@
+{% for tournament in tournaments_list %}
+{%- for key,value in tournament.items() %}
+{%- if "rounds_list" not in key %}
+{% if ("current_round_id" not in key) and ("status" not in key) %}{{ key }}: {{ value }}{%- endif %}
+{%- else %}
+{%- for rounds in tournament[key] %}
+{{ rounds["name"] }}
+{%- for match in rounds["matches_list"] %}
+{{ match[0][0]["ine"] }} {{ match[0][0]["fullname"] }} vs {{ match[1][0]["ine"] }} {{ match[1][0]["fullname"] }} - gagnant: {%- if match[0][1] == 1 %} {{ match[0][0]["ine"] }}{%- else %} {{ match[1][0]["ine"] }}{%- endif %}
+{%- endfor %}
+{%- endfor %}
+{%- endif %}
+{%- endfor %}
+{% endfor %}
