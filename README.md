@@ -23,7 +23,7 @@ NB: Les rapports peuvent être en texte brut, à condition qu'ils soient bien fo
 ## Comment utiliser le projet ?
 1. Clone the repository
 
-      `git clone git@github.com:memphis-tools/oc_projet4_chess_tournament.git`
+      `git clone https://github.com/memphis-tools/oc_projet4_chess_tournament.git`
 
       `cd oc_projet4_chess_tournament`
 
