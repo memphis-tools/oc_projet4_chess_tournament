@@ -67,6 +67,7 @@ class Tournament:
             "players_list": self.players_list,
             "rounds_list": self.rounds_list,
             "current_round_id": self.current_round_id,
+            "current_match_id": self.current_match_id,
             "description": self.description,
             "status": self.status,
         }

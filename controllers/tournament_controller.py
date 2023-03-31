@@ -395,6 +395,7 @@ class TournamentController:
 
         tournament.status = tournament_dict["status"]
         tournament.current_round_id = tournament_dict["current_round_id"]
+        tournament.current_match_id = tournament_dict["current_match_id"]
         return tournament
 
     def get_tournament(self, tournament_id, attribute=""):
@@ -485,10 +486,17 @@ class TournamentController:
                         current_points = json_match[0][0]['points']
                         json_match[0][0]['points'] = current_points + 1
                         json_match[0][1] = 1
-                    else:
+                    elif match[1][1] == 1:
                         current_points = json_match[1][0]['points']
                         json_match[1][0]['points'] = current_points + 1
                         json_match[1][1] = 1
+                    else:
+                        current_points = json_match[0][0]['points']
+                        json_match[0][0]['points'] = current_points + 0.5
+                        json_match[0][1] = 0.5
+                        current_points = json_match[1][0]['points']
+                        json_match[1][0]['points'] = current_points + 0.5
+                        json_match[1][1] = 0.5
                     json_match[0][0]['opponents_faced'].append(f"{p2.ine}")
                     json_match[1][0]['opponents_faced'].append(f"{p1.ine}")
 

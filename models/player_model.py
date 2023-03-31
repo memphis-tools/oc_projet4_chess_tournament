@@ -124,7 +124,7 @@ class Player(Human):
 class PlayerMatchModel:
     def __init__(self, *args, **kw):
         self.ine = kw["ine"]
-        self.points = kw["points"]
+        self.points = float(kw["points"])
         self.opponents_faced = kw["opponents_faced"]
         self.fullname = kw["fullname"]
 
